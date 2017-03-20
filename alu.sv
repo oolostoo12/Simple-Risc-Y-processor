@@ -104,7 +104,7 @@ always_ff @(posedge CLK) begin
    end //if(EN)
    
    else
-    OUTPUT = OUTPUT;
+    OUTPUT <= OUTPUT;
 end
    
 endmodule // alu
