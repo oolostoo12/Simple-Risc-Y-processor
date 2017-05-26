@@ -20,13 +20,13 @@
  ***                                 or store, the appropriate registers will be activated    ***
  ***                                 according to the address indicated by the address        ***
  ***                                 field.                                                   ***
- ***               Cycle 3, Update: The program counter will be updated to the next to        ***
+ ***               Cycle 3, Update: The program counter will be updated to                    ***
  ***                                point at the next intruction if there is no branch        ***
  ***                                instruction. If there is a branch instruction, the        *** 
  ***                                type of branch will be decoded, and the branch address    ***
  ***                                will be loaded onto the PC.                               ***
  ***                                                                                          ***
- ***     vi) Each phase will be controller by a phase generator                               ***  
+ ***     iv) Each phase will be controller by a phase generator                               ***  
  ***                                                                                          *** 
  ************************************************************************************************/
 
@@ -110,7 +110,7 @@ module sequencecontroller(IR_EN,A_EN,B_EN,PDR_EN,PORT_EN,PORT_RD,PC_EN,PC_LOAD,A
 	    BC: begin
 	       IR_EN = 1'b0;
 	       if(ALU_FLAGS[0]) BRANCH = 1'b1;
-	       else BRANCH = 1'b1;
+	       else BRANCH = 1'b0;
 	    end //BC
 	    default: {IR_EN,A_EN,B_EN,PDR_EN,PORT_EN,PORT_RD,PC_EN, PC_LOAD,ALU_EN, ALU_OE, RAM_OE, RDR_EN, RAM_CS} = 13'b0000000000100;//RAM will stay driving memory bus
 	  endcase // case (OPCODE)
